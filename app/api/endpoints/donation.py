@@ -38,7 +38,8 @@ async def create_donation(
     dependencies=[Depends(current_superuser)],
 )
 async def get_all_donations(
-    session: AsyncSession = Depends(get_async_session)):
+    session: AsyncSession = Depends(get_async_session)
+):
     """Получение всех пожертвований."""
     all_donations = await donation_crud.get_multi(session=session)
     return all_donations

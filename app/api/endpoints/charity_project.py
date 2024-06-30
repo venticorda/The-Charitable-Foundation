@@ -52,7 +52,8 @@ async def create_charity_project(
     response_model_exclude_none=True,
 )
 async def get_all_charity_projects(
-    session: AsyncSession = Depends(get_async_session)):
+    session: AsyncSession = Depends(get_async_session)
+):
     """
     Получение всех проектов.
     """
