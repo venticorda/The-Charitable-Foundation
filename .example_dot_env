@@ -1,0 +1,5 @@
+APP_TITLE=Тут фонды и т.п. для котяток
+DATABASE_URL=sqlite+aiosqlite:///./qrkot.db
+SECRET=supersecretsecret
+FIRST_SUPERUSER_EMAIL=secretemail@gmail.com
+FIRST_SUPERUSER_PASSWORD=supersecretpassword

@@ -58,12 +58,9 @@ pytest
 ```
 ## Использованные технологии
 В проекте использовались следующие технологии:
-- [Python 3.10.12](https://www.python.org/)
+- [Python 3.9.11](https://www.python.org/)
 - [FastAPI 0.78.0](https://fastapi.tiangolo.com/)
 - [Alembic 1.7.7](https://alembic.sqlalchemy.org/)
-- [Google Cloud](https://console.cloud.google.com/)
-- [Google Drive](https://drive.google.com/)
-- [Google Sheets](https://workspace.google.com/products/sheets/)
 
 ## Автор:
 [Даниил Варлащенко](https://github.com/ViaDo1orosa)
