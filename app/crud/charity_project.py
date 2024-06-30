@@ -16,7 +16,8 @@ class CRUDCharityProject(CRUDBase):
         return (
             (
                 await session.execute(
-                    select(CharityProject.id).where(CharityProject.name == project_name)
+                    select(CharityProject.id).where(
+                        CharityProject.name == project_name)
                 )
             )
             .scalars()
@@ -31,7 +32,8 @@ class CRUDCharityProject(CRUDBase):
         return (
             (
                 await session.execute(
-                    select(CharityProject).where(CharityProject.id == project_id)
+                    select(CharityProject).where(
+                        CharityProject.id == project_id)
                 )
             )
             .scalars()
@@ -49,7 +51,8 @@ class CRUDCharityProject(CRUDBase):
                     .order_by(
                         func.extract(
                             "epoch",
-                            CharityProject.close_date - CharityProject.create_date,
+                            CharityProject.close_date -
+                            CharityProject.create_date,
                         ).asc()
                     )
                 )

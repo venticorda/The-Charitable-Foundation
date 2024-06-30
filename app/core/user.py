@@ -54,9 +54,11 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
                 f"{MIN_PASSWORD_LENGTH} characters"
             )
         if user.email in password:
-            raise InvalidPasswordException(reason="Password should not contain e-mail")
+            raise InvalidPasswordException(
+                reason="Password should not contain e-mail")
 
-    async def on_after_register(self, user: User, request: Optional[Request] = None):
+    async def on_after_register(
+            self, user: User, request: Optional[Request] = None):
         logging.info(f"Пользователь {user.email} зарегистрирован.")
 
 

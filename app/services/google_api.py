@@ -20,13 +20,16 @@ SPREADHEET_PROPERTIES = {
                 "sheetType": SHEET_TYPE,
                 "sheetId": SHEET_ID,
                 "title": "TITLE",
-                "gridProperties": {"rowCount": ROW_COUNT, "columnCount": COLUMN_COUNT},
+                "gridProperties": {"rowCount": ROW_COUNT,
+                                   "columnCount": COLUMN_COUNT},
             }
         }
     ],
 }
 
-PERMISSIONS_BODY = {"type": "user", "role": "writer", "emailAddress": settings.email}
+PERMISSIONS_BODY = {"type": "user",
+                    "role": "writer",
+                    "emailAddress": settings.email}
 
 UPDATE_BODY = {"majorDimension": "ROWS", "values": []}
 
@@ -51,7 +54,9 @@ async def spreadsheets_create(wrapper_services: Aiogoogle) -> str:
     return spreadsheetid
 
 
-async def set_user_permissions(spreadsheetid: str, wrapper_services: Aiogoogle) -> None:
+async def set_user_permissions(
+        spreadsheetid: str,
+        wrapper_services: Aiogoogle) -> None:
     service = await wrapper_services.discover("drive", "v3")
     await wrapper_services.as_service_account(
         service.permissions.create(

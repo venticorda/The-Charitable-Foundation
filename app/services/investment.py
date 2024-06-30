@@ -11,7 +11,9 @@ async def get_not_closed_projects(
     obj_in: Union[CharityProject, Donation], session: AsyncSession
 ) -> List[Union[CharityProject, Donation]]:
     objects = await session.execute(
-        select(obj_in).where(obj_in.fully_invested == 0).order_by(obj_in.create_date)
+        select(obj_in).where(
+            obj_in.fully_invested == 0).order_by(
+                obj_in.create_date)
     )
     return objects.scalars().all()
 

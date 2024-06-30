@@ -51,7 +51,8 @@ async def create_charity_project(
     response_model=List[CharityProjectDB],
     response_model_exclude_none=True,
 )
-async def get_all_charity_projects(session: AsyncSession = Depends(get_async_session)):
+async def get_all_charity_projects(
+    session: AsyncSession = Depends(get_async_session)):
     """
     Получение всех проектов.
     """
@@ -76,7 +77,8 @@ async def update_charity_project(
         await check_charity_project_name_duplicate(obj_in.name, session)
     if obj_in.full_amount is not None:
         check_charity_project_invested_amount(project, obj_in.full_amount)
-    update_project = await charity_project_crud.update(project, obj_in, session)
+    update_project = await charity_project_crud.update(
+        project, obj_in, session)
     return update_project
 
 

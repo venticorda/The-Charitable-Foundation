@@ -16,7 +16,9 @@ class CRUDBase:
         session: AsyncSession,
     ):
         return (
-            (await session.execute(select(self.model).where(self.model.id == obj_id)))
+            (await session.execute(
+                select(self.model).where(
+                    self.model.id == obj_id)))
             .scalars()
             .first()
         )
@@ -24,7 +26,11 @@ class CRUDBase:
     async def get_multi(self, session: AsyncSession):
         return (await session.execute(select(self.model))).scalars().all()
 
-    async def create(self, obj_in, session: AsyncSession, user: Optional[User] = None):
+    async def create(
+            self,
+            obj_in,
+            session: AsyncSession,
+            user: Optional[User] = None):
         obj_in_data = obj_in.dict()
         if user is not None:
             obj_in_data["user_id"] = user.id

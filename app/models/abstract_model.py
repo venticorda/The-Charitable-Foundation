@@ -3,7 +3,8 @@ from datetime import datetime
 from sqlalchemy import Column, Integer, Boolean, DateTime
 
 from app.core.db import Base
-from app.services.constants import DEFAULT_INVESTED_AMOUNT, DEFAULT_FULLY_INVESTED
+from app.services.constants import (DEFAULT_INVESTED_AMOUNT,
+                                    DEFAULT_FULLY_INVESTED)
 
 
 class Abstract(Base):

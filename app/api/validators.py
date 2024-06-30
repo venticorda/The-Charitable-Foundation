@@ -21,7 +21,8 @@ async def check_charity_project_name_duplicate(
         )
 
 
-def check_charity_project_invested_amount(project: CharityProject, new_amount: int):
+def check_charity_project_invested_amount(
+        project: CharityProject, new_amount: int):
     if project.invested_amount > new_amount:
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST,
@@ -33,7 +34,8 @@ async def check_charity_project_exists(
     project_id: int,
     session: AsyncSession,
 ):
-    project = await charity_project_crud.get_charity_project_by_id(project_id, session)
+    project = await charity_project_crud.get_charity_project_by_id(
+        project_id, session)
     if project is None:
         raise HTTPException(
             status_code=HTTPStatus.NOT_FOUND, detail="Проект не найден!"
