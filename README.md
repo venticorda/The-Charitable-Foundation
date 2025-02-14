@@ -6,7 +6,7 @@
 * Клонировать репозиторий и перейти в него в командной строке:
 
 ``` bash
-git clone https://github.com/ViaDo1orosa/cat_charity_fund.git
+git clone https://github.com/venticorda/cat_charity_fund.git
 ```
 * Cоздать и активировать виртуальное окружение:
 
@@ -66,5 +66,5 @@ pytest
 - [Google Sheets](https://workspace.google.com/products/sheets/)
 
 ## Автор:
-[Даниил Варлащенко](https://github.com/ViaDo1orosa)
+[Даниил Варлащенко](https://github.com/venticorda)
 ***

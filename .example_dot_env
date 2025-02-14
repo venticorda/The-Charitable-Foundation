@@ -1,5 +1,17 @@
-APP_TITLE=Тут фонды и т.п. для котяток
-DATABASE_URL=sqlite+aiosqlite:///./qrkot.db
-SECRET=supersecretsecret
-FIRST_SUPERUSER_EMAIL=secretemail@gmail.com
-FIRST_SUPERUSER_PASSWORD=supersecretpassword
+APP_TITLE=Ваше название
+DATABASE_URL=ваша ссылка на бд, например sqlite+aiosqlite:///./qrkot.db
+SECRET=Ваш секретный ключ
+FIRST_SUPERUSER_EMAIL=email вашего суперюзера
+FIRST_SUPERUSER_PASSWORD=пароль вашего суперюзера
+#  Далее указаваются данные вашего сервисного аккаунта
+TYPE=service_account
+PROJECT_ID=
+PRIVATE_KEY_ID=id приватного ключа
+PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\ваш приватный ключ\n-----END PRIVATE KEY-----\n"
+CLIENT_EMAIL=email сервисного аккаунта
+CLIENT_ID=id сервисного аккаунта
+AUTH_URI=https://accounts.google.com/o/oauth2/auth
+TOKEN_URI=https://oauth2.googleapis.com/token
+AUTH_PROVIDER_X509_CERT_URL=https://www.googleapis.com/oauth2/v1/certs
+CLIENT_X509_CERT_URL=url вашего открытого сертификата x509
+EMAIL=адрес вашей почты
