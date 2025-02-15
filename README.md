@@ -119,6 +119,75 @@ GET /charity_project/
 ]
 ```
 
+## CI/CD
+
+Проект настроен для автоматического запуска тестов и проверки кода при каждом пуше в репозиторий с использованием GitHub Actions. Конфигурация находится в файле `.github/workflows/ci.yml`.
+
+### Настройка CI/CD
+
+1. Создайте файл конфигурации для GitHub Actions:
+    ```yaml
+    name: CI
+
+    on:
+      push:
+        branches:
+          - main
+      pull_request:
+        branches:
+          - main
+
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+
+        services:
+          postgres:
+            image: postgres:13
+            env:
+              POSTGRES_USER: postgres
+              POSTGRES_PASSWORD: postgres
+              POSTGRES_DB: test_db
+            ports:
+              - 5432:5432
+            options: >-
+              --health-cmd="pg_isready -U postgres"
+              --health-interval=10s
+              --health-timeout=5s
+              --health-retries=5
+
+        env:
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
+
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Set up Python
+          uses: actions/setup-python@v2
+          with:
+            python-version: 3.10
+
+        - name: Install dependencies
+          run: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+
+        - name: Run tests
+          run: |
+            alembic upgrade head
+            pytest
+    ```
+
+2. Коммит и пуш изменений в репозиторий:
+    ```bash
+    git add .github/workflows/ci.yml
+    git commit -m "Add CI/CD configuration"
+    git push origin main
+    ```
+
+Теперь каждый раз, когда вы пушите изменения в ветку `main`, GitHub Actions будет автоматически запускать тесты и проверять код.
+
 ## Использованные технологии
 В проекте использовались следующие технологии:
 - [Python 3.10.12](https://www.python.org/)
