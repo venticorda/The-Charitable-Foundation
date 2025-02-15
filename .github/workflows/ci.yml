@@ -26,6 +26,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Set up environment variables
+      run: echo "DATABASE_URL=sqlite+aiosqlite:///./test.db" >> $GITHUB_ENV
+
     - name: Run tests
       run: |
         alembic upgrade head
