@@ -57,6 +57,26 @@ alembic upgrade head
 pytest
 ```
 
+## Запуск проекта с использованием Docker
+
+1. Склонируйте репозиторий:
+    ```bash
+    git clone https://github.com/venticorda/The-Charitable-Foundation.git
+    cd The-Charitable-Foundation
+    ```
+
+2. Постройте Docker-образ:
+    ```bash
+    docker build -t charitable_foundation .
+    ```
+
+3. Запустите контейнер:
+    ```bash
+    docker run -d -p 8000:8000 charitable_foundation
+    ```
+
+4. Откройте браузер и перейдите по адресу `http://localhost:8000`, чтобы увидеть работающий проект.
+
 ## Примеры функций и возможностей
 
 ### Создание благотворительного проекта
@@ -161,7 +181,7 @@ GET /charity_project/
         - name: Run tests
           run: |
             alembic upgrade head
-            pytest"
+            pytest
 
     ```
 
